@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tetravite-orchestrator"
+version = "0.1.0"
+description = "Static DAG orchestrator for trusted TETRAVITE v1alpha1 capability packages"
+requires-python = ">=3.11"
+dependencies = ["tetravite-runtime>=0.1.0,<0.2", "PyYAML>=6,<7", "jsonschema>=4.23,<5"]
+
+[project.scripts]
+tetravite-orchestrator = "tetravite_orchestrator.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

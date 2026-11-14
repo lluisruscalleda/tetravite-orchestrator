@@ -1,0 +1,8 @@
+# Reproducible demo environment versions (Python 3.11+); install local runtime separately.
+PyYAML==6.0.2
+jsonschema==4.25.1
+attrs==25.4.0
+jsonschema-specifications==2025.9.1
+referencing==0.37.0
+rpds-py==0.28.0
+# tetravite-runtime==0.1.0 is a local sibling package, not fetched from PyPI.

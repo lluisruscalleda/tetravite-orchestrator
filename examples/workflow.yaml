@@ -1,0 +1,17 @@
+apiVersion: tetravite.dev/workflow/v1alpha1
+kind: Workflow
+metadata:
+  name: hello-chain
+inputSchema: schemas/input.json
+steps:
+  - id: first
+    uses: hello
+    with:
+      name: ${input.name}
+  - id: second
+    uses: hello
+    with:
+      name: ${steps.first.result.greeting}
+output:
+  firstGreeting: ${steps.first.result.greeting}
+  chainedGreeting: ${steps.second.result.greeting}

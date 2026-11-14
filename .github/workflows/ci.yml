@@ -1,0 +1,16 @@
+# Replace the placeholder repository URL with your published tetravite-runtime repository before enabling CI.
+name: tests
+on: [workflow_dispatch]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: |
+          git clone --depth 1 https://github.com/REPLACE_WITH_OWNER/tetravite-runtime.git ../tetravite-runtime
+          python -m pip install -e ../tetravite-runtime
+          python -m pip install -e .
+          python -m unittest discover -s tests -v
